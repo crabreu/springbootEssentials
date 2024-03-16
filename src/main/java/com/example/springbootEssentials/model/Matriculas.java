@@ -23,7 +23,7 @@ public class Matriculas {
     @Id
     @GeneratedValue (strategy = GenerationType.AUTO)
     private long id;
- 
+    //comentario testes branch
     private long idCurso;
 
     private long idEstudante;
