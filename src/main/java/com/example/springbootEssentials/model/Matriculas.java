@@ -4,6 +4,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
@@ -24,12 +25,10 @@ public class Matriculas {
     @GeneratedValue (strategy = GenerationType.AUTO)
     private long id;
 
-    private long idCurso;
-    
-    private long idEstudante;
-
-    @ManyToOne
+    @ManyToOne 
+    @JoinColumn(name="cursos_id",updatable = false, nullable=false) //insertable = false, updatable = false, nullable=false)
     private Curso curso;
-    @ManyToOne
+    @ManyToOne 
+    @JoinColumn(name="estudantes_id", updatable = false, nullable=false) //insertable = false, updatable = false, nullable=false)
     private Estudante estudante;
 }

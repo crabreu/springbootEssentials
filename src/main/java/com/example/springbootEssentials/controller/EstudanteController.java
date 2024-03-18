@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.example.springbootEssentials.model.Estudante;
 import com.example.springbootEssentials.model.EstudanteRepository;
+import com.example.springbootEssentials.model.MatriculasRepository;
 
 import lombok.extern.slf4j.Slf4j;
 

@@ -26,6 +26,6 @@ public class Estudante {
 
     private String dataMatricula;
 
-/*     @OneToMany
-    private List<Matriculas> matriculas; */
+    @OneToMany 
+    private List<Matriculas> matriculas;
 }

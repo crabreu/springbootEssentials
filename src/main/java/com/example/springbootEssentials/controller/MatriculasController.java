@@ -52,19 +52,28 @@ public class MatriculasController {
     }
     @PostMapping()
     public Matriculas save(@RequestBody Matriculas matricula)  throws BadRequestException{
-        if(!Objects.isNull(matricula.getId()) && !Objects.isNull(matricula.getIdCurso())&& !Objects.isNull(matricula.getIdEstudante()) ){
-            Estudante estudante = estudanteRepository.findById(matricula.getIdEstudante()).get();
-            Curso curso = cursoRepository.findById(matricula.getIdCurso()).get();
+        if(!Objects.isNull(matricula.getId()) && !Objects.isNull(matricula.getCurso())&& !Objects.isNull(matricula.getEstudante()) ){
+            Estudante estudante = estudanteRepository.findById(matricula.getEstudante().getId()).get();
+            Curso curso = cursoRepository.findById(matricula.getCurso().getId()).get();
             log.info("Cria a matricula do estudante: {} no curso {}",estudante.getNome(), curso.getTitulo());
             estudante.setDataMatricula(new Date().toString());
             estudanteRepository.save(estudante);
+            log.info("Setada a data da matricula");
             matricula.setCurso(curso);
+            log.info("Setado o curso");
             matricula.setEstudante(estudante);
+            log.info("Setado o estudante");
+            matriculasRepository.save(matricula);
+            log.info("Salva a matricula");
+            cursoRepository.save(curso);
+            log.info("Salvo a matricula");
+            estudanteRepository.save(estudante);
+            log.info("Salvo o estudante");
             
         }else{
             throw new BadRequestException();
         }
-        return matriculasRepository.save(matricula);
+        return matricula;
     }
     @PatchMapping("/{id}")
     public Matriculas update(@PathVariable ("id") Long id, @RequestBody Matriculas matricula) throws BadRequestException{

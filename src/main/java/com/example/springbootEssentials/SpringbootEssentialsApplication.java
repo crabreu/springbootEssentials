@@ -31,12 +31,12 @@ public class SpringbootEssentialsApplication {
 	}
 		return (args) -> {
 			log.info("Criando Database Cursos");
-			repository.save(new Curso(1l, "Curso 1", 6));
-			repository.save(new Curso(2l, "Curso 2", 4));
-			repository.save(new Curso(3l, "Curso 3", 20));
-			erepository.save(new Estudante(1l, "Estudante 1", ""));
-			erepository.save(new Estudante(2l, "Estudante 2", ""));
-			erepository.save(new Estudante(3l, "Estudante 3", ""));
+			repository.save(new Curso(1l, "Curso 1", 6, null));
+			repository.save(new Curso(2l, "Curso 2", 4, null));
+			repository.save(new Curso(3l, "Curso 3", 20, null));
+			erepository.save(new Estudante(1l, "Estudante 1", "",null));
+			erepository.save(new Estudante(2l, "Estudante 2", "",null));
+			erepository.save(new Estudante(3l, "Estudante 3", "",null));
 			};
 		
 	}

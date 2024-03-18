@@ -27,7 +27,7 @@ public class Curso {
 
     private int creditos ;
 
-/*     @OneToMany
-    private List<Matriculas> matriculas; */
+    @OneToMany //(mappedBy="curso")
+    private List<Matriculas> matriculas;
 
 }
